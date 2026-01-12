@@ -1,6 +1,8 @@
 # user-group-mod-alert-tf-module #
 
 [![GitHub Build Status](https://github.com/cisagov/user-group-mod-alert-tf-module/workflows/build/badge.svg)](https://github.com/cisagov/user-group-mod-alert-tf-module/actions)
+[![License](https://img.shields.io/github/license/cisagov/user-group-mod-alert-tf-module)](https://spdx.org/licenses/)
+[![CodeQL](https://github.com/cisagov/user-group-mod-alert-tf-module/workflows/CodeQL/badge.svg)](https://github.com/cisagov/user-group-mod-alert-tf-module/actions/workflows/codeql-analysis.yml)
 
 A Terraform module for creating an EventBridge event that triggers whenever a
 new IAM or SSO user is created or deleted, a user is added or removed from a
