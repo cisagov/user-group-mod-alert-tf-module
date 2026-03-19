@@ -26,14 +26,14 @@ module "example" {
 ## Requirements ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | terraform | >= 1.1 |
 | aws | >= 4.9 |
 
 ## Providers ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | aws | >= 4.9 |
 
 ## Modules ##
@@ -43,20 +43,20 @@ No modules.
 ## Resources ##
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_cloudwatch_event_rule.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule) | resource |
 | [aws_cloudwatch_event_target.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | target\_arn | The ARN of a target (usually an SNS topic) that should be notified when a new IAM or SSO user is created or deleted, a user is added or removed from a group, or a group is created or deleted (e.g. arn:aws:sns:us-east-1:012345678901:my-sns-topic). | `string` | n/a | yes |
 
 ## Outputs ##
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | rule | The EventBridge event rule that will be triggered when a new IAM or SSO user is created or deleted, a user is added or removed from a group, or a group is created or deleted. |
 | target | The EventBridge event target for the rule. |
 <!-- END_TF_DOCS -->
