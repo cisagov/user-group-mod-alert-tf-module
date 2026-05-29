@@ -30,4 +30,36 @@ resource "aws_cloudwatch_event_target" "this" {
   arn       = var.target_arn
   rule      = aws_cloudwatch_event_rule.this.name
   target_id = "SendToSNS"
+
+  input_transformer {
+    input_paths = {
+      account       = "$.account"
+      actor         = "$.detail.userIdentity.arn"
+      eventName     = "$.detail.eventName"
+      eventSource   = "$.detail.eventSource"
+      eventTime     = "$.detail.eventTime"
+      rawJson       = "$"
+      region        = "$.region"
+      requestParams = "$.detail.requestParameters"
+      sourceIP      = "$.detail.sourceIPAddress"
+      reqUserName   = "$.detail.requestParameters.userName"
+      reqGroupName  = "$.detail.requestParameters.groupName"
+    }
+
+    input_template = <<-EOT
+      "====== IAM/SSO Event Alert ======"
+      "Event:      <eventName>"
+      "Username:   <reqUserName>"
+      "Group:      <reqGroupName>"
+      "Source:     <eventSource>"
+      "Time:       <eventTime>"
+      "Account:    <account>"
+      "Region:     <region>"
+      "Actor:      <actor>"
+      "Source IP:  <sourceIP>"
+      "Params:     <requestParams>"
+      "Raw JSON:"
+      "<rawJson>"
+    EOT
+  }
 }
