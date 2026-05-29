@@ -31,6 +31,7 @@ resource "aws_cloudwatch_event_target" "this" {
   rule      = aws_cloudwatch_event_rule.this.name
   target_id = "SendToSNS"
 
+  # Format event data into a more human readable format before sending to the target
   input_transformer {
     input_paths = {
       account       = "$.account"
