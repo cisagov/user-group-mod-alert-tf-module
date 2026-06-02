@@ -12,7 +12,7 @@ group, or a group is created or deleted.
 
 ```hcl
 module "example" {
-  source = "github.com/cisagov/user-group-mod-alert-tf-module?ref=v1.0.0"
+  source = "github.com/cisagov/user-group-mod-alert-tf-module?ref=v1.0.1"
 
   target_arn = "arn:aws:sns:us-east-1:012345678901:my-sns-topic"
 }
